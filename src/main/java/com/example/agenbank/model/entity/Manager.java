@@ -1,4 +1,4 @@
-package com.example.agenbank.entity;
+package com.example.agenbank.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +13,17 @@ public class Manager {
     private Integer id;
     private String nip;
     private String name;
+    private String gender;
     private String phoneNumber;
     private String email;
 
     public Manager() {
     }
 
-    public Manager(String nip, String name, String phoneNumber, String email) {
+    public Manager(String nip, String name, String gender, String phoneNumber, String email) {
         this.nip = nip;
         this.name = name;
+        this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -51,6 +53,14 @@ public class Manager {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getPhoneNumber() {

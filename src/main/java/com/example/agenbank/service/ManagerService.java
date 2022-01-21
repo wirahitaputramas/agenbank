@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ManagerService{
 
@@ -33,4 +36,11 @@ public class ManagerService{
     public void removeManagerById(Integer id) {
 
     }
+
+    public List<String> getAllManagerName() {
+        return managerRepository.findAllManagerName()
+                .stream().map(String::toUpperCase)
+                .collect(Collectors.toList());
+    }
+
 }

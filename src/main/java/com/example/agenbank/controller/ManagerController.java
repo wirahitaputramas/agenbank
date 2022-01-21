@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ManagerController {
 
@@ -31,6 +33,11 @@ public class ManagerController {
     public Page<Manager> getAllManager(@RequestParam Integer page, @RequestParam Integer size){
         Pageable pageable = PageRequest.of(page, size);
         return managerService.getAllManager(pageable);
+    }
+
+    @GetMapping("/managers-name")
+    public List<String> getAllManagerName(){
+        return managerService.getAllManagerName();
     }
 
 
